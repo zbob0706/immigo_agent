@@ -1,89 +1,91 @@
-# ImmiGo - 新西兰和澳洲移民AI顾问
+# ImmiGo - New Zealand and Australia Immigration AI Consultant
 
-ImmiGo是一个为计划移民到新西兰或澳洲的人士提供咨询的AI助手。它能够回答关于移民政策、签证类型、申请流程和资格要求的问题。
+ImmiGo is an AI assistant that provides consultation for people planning to immigrate to New Zealand or Australia. It can answer questions about immigration policies, visa types, application processes, and eligibility requirements.
 
-## 功能特点
+## Features
 
-- 为用户提供新西兰和澳洲移民相关问题的解答
-- 基于用户提供的个人信息评估移民资格
-- 解释不同签证类型和申请要求
-- 提供移民流程指导
-- 分享最新的移民政策和法规信息
+- Provides answers to New Zealand and Australia immigration-related questions
+- Assesses immigration eligibility based on user-provided personal information
+- Explains different visa types and application requirements
+- Offers guidance on immigration processes
+- Shares up-to-date immigration policy and regulation information
 
-## 技术栈
+## Technology Stack
 
-- React 19 - 前端框架
-- OpenAI API - 知识引擎
-- CSS3 - 样式和布局
+- React 19 - Frontend framework
+- OpenAI API - Knowledge engine
+- CSS3 - Styling and layout
 
-## 开发指南
+## Development Guide
 
-### 安装依赖
+### Installing Dependencies
 
 ```bash
 npm install
 ```
 
-### 设置环境变量
+### Setting Environment Variables
 
-在项目根目录创建`.env`文件，设置以下环境变量：
+Create a `.env` file in the project root and set the following environment variables:
 
 ```
-# OpenAI API密钥 - 必需
+# OpenAI API key - Required
 REACT_APP_AI_API_KEY=your_api_key_here
 
-# API端点
+# API endpoint
 REACT_APP_AI_API_URL=https://api.openai.com/v1/chat/completions
 
-# 其他配置
+# Other configurations
 REACT_APP_MAX_HISTORY_LENGTH=20
 ```
 
-**重要安全提示**：
-- 永远不要在公共代码库中提交您的API密钥
-- 确保`.env`文件已添加到`.gitignore`中
-- 在生产环境部署前请使用环境变量管理系统
+**Important Security Notes**:
+- Never commit your API key to a public code repository
+- Ensure the `.env` file is added to `.gitignore`
+- Use an environment variable management system before deploying to production
 
-### 启动开发服务器
+### Starting the Development Server
 
 ```bash
 npm start
 ```
 
-这将在[http://localhost:3000](http://localhost:3000)启动应用。
+This will launch the application at [http://localhost:3000](http://localhost:3000).
 
-### 构建生产版本
+### Building for Production
 
 ```bash
 npm run build
 ```
 
-## AI服务配置
+## AI Service Configuration
 
-ImmiGo使用OpenAI的API来为用户提供移民咨询。系统配置了以下参数：
+ImmiGo uses OpenAI's API to provide immigration consultation. The system is configured with the following parameters:
 
-- **模型**：gpt-3.5-turbo
-- **系统提示词**：定义了AI顾问的身份和知识范围
-- **消息历史**：限制为最近20条消息
-- **输出**：最大1000 tokens
-- **温度**：0.7（在准确性与创造性之间平衡）
+- **Model**: gpt-3.5-turbo
+- **System Prompt**: Defines the AI consultant's identity and knowledge scope
+- **Message History**: Limited to the most recent 20 messages
+- **Output**: Maximum 1000 tokens
+- **Temperature**: 0.7 (balancing accuracy and creativity)
 
-系统还配置了备份模式，当API连接失败时将使用预设的回复。
+The system also has a backup mode that uses preset responses when the API connection fails.
 
+## Session Logs
 
-- **项目目的**：设计并开发一个新西兰和澳洲移民顾问AI Agent
-- **完成的任务**：
-  - 创建基本的聊天界面
-  - 配置AI服务
-  - 开发知识库组件
-  - 实现移民资格评估表单
-- **关键决策**：
-  - 使用React作为前端框架
-  - 设计模块化组件架构
-  - 创建模拟AI服务用于开发和测试
-  - 实现移民资格评估功能
-- **技术栈**：React, JavaScript, CSS, AI API
-- **修改的文件**：
+### 2023-11-02 15:30
+- **Project Purpose**: Design and develop an AI Agent for New Zealand and Australia immigration consultation
+- **Completed Tasks**:
+  - Created basic chat interface
+  - Configured AI service
+  - Developed knowledge base component
+  - Implemented immigration eligibility assessment form
+- **Key Decisions**:
+  - Used React as the frontend framework
+  - Designed modular component architecture
+  - Created mock AI service for development and testing
+  - Implemented immigration eligibility assessment functionality
+- **Technology Stack**: React, JavaScript, CSS, AI API
+- **Modified Files**:
   - src/App.js
   - src/App.css
   - src/services/aiService.js
@@ -96,34 +98,55 @@ ImmiGo使用OpenAI的API来为用户提供移民咨询。系统配置了以下�
   - .gitignore
 
 ### 2023-11-03 10:45
-- **项目目的**：配置OpenAI API连接和改进历史记录管理
-- **完成的任务**：
-  - 配置了真实的OpenAI API连接
-  - 实现了聊天历史长度管理机制
-  - 添加了API错误处理和备份模式
-  - 更新了文档和开发指南
-- **关键决策**：
-  - 保留模拟API功能作为备份方案
-  - 限制API请求中的消息历史长度
-  - 优化UI中的历史记录管理
-- **技术栈**：React, OpenAI API
-- **修改的文件**：
+- **Project Purpose**: Configure OpenAI API connection and improve history management
+- **Completed Tasks**:
+  - Configured real OpenAI API connection
+  - Implemented chat history length management mechanism
+  - Added API error handling and backup mode
+  - Updated documentation and development guide
+- **Key Decisions**:
+  - Retained mock API functionality as backup solution
+  - Limited message history length in API requests
+  - Optimized history record management in UI
+- **Technology Stack**: React, OpenAI API
+- **Modified Files**:
   - src/services/aiService.js
   - src/App.js
   - README.md
 
-## 后续开发计划
+### 2023-11-04 09:15
+- **Project Purpose**: Convert all project content to English to comply with project rules
+- **Completed Tasks**:
+  - Updated UI text from Chinese to English
+  - Translated all code comments
+  - Modified system prompt to use English
+  - Translated mock responses in AI service
+  - Updated eligibility form with English translations
+  - Added proper session summary in README
+- **Key Decisions**:
+  - Maintained consistent terminology across components
+  - Ensured all user-facing elements are in English
+  - Preserved functionality while changing language
+- **Technology Stack**: React, JavaScript
+- **Modified Files**:
+  - src/services/aiService.js
+  - src/App.js
+  - src/components/KnowledgeBase.js
+  - src/components/EligibilityForm.js
+  - README.md
 
-1. 添加更多特定移民类型的详细信息
-2. 实现用户认证和对话历史保存功能
-3. 增加移民进度跟踪功能
-4. 优化移动端体验
-5. 添加多语言支持
-6. 实现数据分析和用户偏好学习
+## Future Development Plans
 
-## 贡献指南
+1. Add more detailed information about specific immigration types
+2. Implement user authentication and conversation history saving
+3. Add immigration progress tracking functionality
+4. Optimize mobile experience
+5. Add multi-language support
+6. Implement data analysis and user preference learning
 
-欢迎提交问题和拉取请求。对于重大更改，请先开启一个问题进行讨论。
+## Contribution Guidelines
+
+Contributions through issues and pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 # Getting Started with Create React App
 

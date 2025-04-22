@@ -6,39 +6,39 @@ const KnowledgeBase = ({ onSelectTopic }) => {
 
   const knowledgeData = {
     australia: {
-      name: '澳洲移民',
+      name: 'Australia Immigration',
       topics: [
-        { id: 'au-skilled', title: '技术移民', question: '澳洲技术移民有哪些类别？' },
-        { id: 'au-family', title: '家庭团聚', question: '我可以申请父母移民澳洲吗？' },
-        { id: 'au-points', title: '评分系统', question: '澳洲技术移民评分系统如何计算？' },
-        { id: 'au-pr', title: '永久居留', question: '获得澳洲PR后多久可以申请入籍？' },
-        { id: 'au-work', title: '工作签证', question: '482工作签证申请条件是什么？' }
+        { id: 'au-skilled', title: 'Skilled Migration', question: 'What categories of skilled migration are available in Australia?' },
+        { id: 'au-family', title: 'Family Reunion', question: 'Can I apply for parent migration to Australia?' },
+        { id: 'au-points', title: 'Points System', question: 'How is the Australian skilled migration points system calculated?' },
+        { id: 'au-pr', title: 'Permanent Residency', question: 'How long after getting Australian PR can I apply for citizenship?' },
+        { id: 'au-work', title: 'Work Visa', question: 'What are the conditions for a 482 work visa application?' }
       ]
     },
     newzealand: {
-      name: '新西兰移民',
+      name: 'New Zealand Immigration',
       topics: [
-        { id: 'nz-skilled', title: '技术移民', question: '新西兰技术移民需要哪些条件？' },
-        { id: 'nz-family', title: '家庭团聚', question: '如何通过家庭关系移民新西兰？' },
-        { id: 'nz-points', title: '评分系统', question: '新西兰技术移民评分标准是什么？' },
-        { id: 'nz-work', title: '工作签证', question: '新西兰工签转永居的流程是怎样的？' },
-        { id: 'nz-business', title: '投资移民', question: '新西兰投资移民需要投资多少资金？' }
+        { id: 'nz-skilled', title: 'Skilled Migration', question: 'What are the requirements for New Zealand skilled migration?' },
+        { id: 'nz-family', title: 'Family Reunion', question: 'How can I immigrate to New Zealand through family relationships?' },
+        { id: 'nz-points', title: 'Points System', question: 'What are the scoring criteria for New Zealand skilled migration?' },
+        { id: 'nz-work', title: 'Work Visa', question: 'What is the process for converting a New Zealand work visa to permanent residency?' },
+        { id: 'nz-business', title: 'Investment Migration', question: 'How much investment is required for New Zealand investor migration?' }
       ]
     },
     comparison: {
-      name: '澳新比较',
+      name: 'AU-NZ Comparison',
       topics: [
-        { id: 'comp-overview', title: '政策对比', question: '澳洲和新西兰的移民政策有什么主要区别？' },
-        { id: 'comp-requirements', title: '要求比较', question: '澳洲和新西兰技术移民哪个更容易申请？' },
-        { id: 'comp-living', title: '生活对比', question: '澳洲和新西兰的生活成本哪个更高？' },
-        { id: 'comp-job', title: '就业机会', question: '澳洲和新西兰哪个就业机会更多？' }
+        { id: 'comp-overview', title: 'Policy Comparison', question: 'What are the main differences between Australia and New Zealand immigration policies?' },
+        { id: 'comp-requirements', title: 'Requirements', question: 'Is skilled migration to Australia or New Zealand easier to apply for?' },
+        { id: 'comp-living', title: 'Living Costs', question: 'Which has higher living costs, Australia or New Zealand?' },
+        { id: 'comp-job', title: 'Job Opportunities', question: 'Which country offers more job opportunities, Australia or New Zealand?' }
       ]
     }
   };
 
   return (
     <div className="knowledge-base">
-      <h2>移民知识库</h2>
+      <h2>Immigration Knowledge Base</h2>
       
       <div className="category-tabs">
         {Object.keys(knowledgeData).map(category => (

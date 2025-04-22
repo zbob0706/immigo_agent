@@ -11,21 +11,21 @@ function App() {
   const [showEligibilityForm, setShowEligibilityForm] = useState(false);
   const chatHistoryRef = useRef(null);
   
-  // 获取配置的最大历史记录长度
+  // Get configured maximum history length
   const MAX_HISTORY_LENGTH = parseInt(process.env.REACT_APP_MAX_HISTORY_LENGTH || '20');
 
-  // 自动滚动到最新消息
+  // Auto-scroll to latest message
   useEffect(() => {
     if (chatHistoryRef.current) {
       chatHistoryRef.current.scrollTop = chatHistoryRef.current.scrollHeight;
     }
   }, [chatHistory]);
 
-  // 欢迎消息
+  // Welcome message
   useEffect(() => {
     const welcomeMessage = {
       role: 'assistant',
-      content: '你好！我是ImmiGo，您的新西兰和澳洲移民AI顾问。我可以回答有关移民政策、签证申请、资格要求等问题。请告诉我您想了解什么？'
+      content: 'Hello! I am ImmiGo, your New Zealand and Australia immigration AI consultant. I can answer questions about immigration policies, visa applications, eligibility requirements, and more. Please tell me what you would like to know?'
     };
     setChatHistory([welcomeMessage]);
   }, []);
@@ -38,33 +38,33 @@ function App() {
   };
 
   const sendMessage = async (message) => {
-    // 添加用户消息到聊天历史
+    // Add user message to chat history
     const userMessage = { role: 'user', content: message };
     const newHistory = [...chatHistory, userMessage];
     setChatHistory(newHistory);
     
-    // 清空输入框
+    // Clear input field
     setUserInput('');
     
-    // 显示加载状态
+    // Show loading status
     setIsLoading(true);
     
     try {
-      // 限制发送给API的消息历史长度
+      // Limit message history length sent to API
       const limitedHistory = newHistory.length > MAX_HISTORY_LENGTH 
         ? newHistory.slice(newHistory.length - MAX_HISTORY_LENGTH) 
         : newHistory;
       
-      // 调用AI服务获取回复
+      // Call AI service to get response
       const aiMessageContent = await getAIResponse(
         limitedHistory.map(msg => ({ role: msg.role, content: msg.content }))
       );
       
-      // 添加AI回复到聊天历史
+      // Add AI response to chat history
       const aiMessage = { role: 'assistant', content: aiMessageContent };
       setChatHistory(prevHistory => [...prevHistory, aiMessage]);
       
-      // 如果历史记录过长，可以在UI中只保留最近的部分记录
+      // If history is too long, only keep recent records in UI
       if (chatHistory.length > MAX_HISTORY_LENGTH * 2) {
         setChatHistory(currentHistory => 
           currentHistory.slice(currentHistory.length - MAX_HISTORY_LENGTH * 2)
@@ -74,29 +74,29 @@ function App() {
       console.error('Error fetching response:', error);
       setChatHistory(prevHistory => [
         ...prevHistory, 
-        { role: 'assistant', content: '抱歉，处理您的请求时出现了错误。请稍后再试。' }
+        { role: 'assistant', content: 'Sorry, an error occurred while processing your request. Please try again later.' }
       ]);
     } finally {
       setIsLoading(false);
     }
   };
 
-  // 处理知识库中选择的主题
+  // Handle topic selection from knowledge base
   const handleTopicSelect = (question) => {
     setUserInput(question);
   };
 
-  // 处理评估表单打开
+  // Handle opening eligibility form
   const handleOpenEligibilityForm = () => {
     setShowEligibilityForm(true);
   };
 
-  // 处理评估表单关闭
+  // Handle closing eligibility form
   const handleCloseEligibilityForm = () => {
     setShowEligibilityForm(false);
   };
 
-  // 处理评估表单提交
+  // Handle eligibility form submission
   const handleSubmitEligibilityForm = (formattedQuestion) => {
     sendMessage(formattedQuestion);
   };
@@ -105,7 +105,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>ImmiGo</h1>
-        <p>您的新西兰和澳洲移民AI顾问</p>
+        <p>Your New Zealand and Australia Immigration AI Consultant</p>
       </header>
       
       <main className="chat-container">
@@ -114,7 +114,7 @@ function App() {
             className="eligibility-button" 
             onClick={handleOpenEligibilityForm}
           >
-            进行移民资格评估
+            Take Immigration Eligibility Assessment
           </button>
         </div>
         
@@ -127,7 +127,7 @@ function App() {
               {message.content}
             </div>
           ))}
-          {isLoading && <div className="loading">AI顾问正在思考...</div>}
+          {isLoading && <div className="loading">AI consultant is thinking...</div>}
         </div>
         
         <form onSubmit={handleSubmit} className="input-form">
@@ -135,12 +135,12 @@ function App() {
             type="text" 
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
-            placeholder="请输入您的移民相关问题..."
+            placeholder="Enter your immigration question..."
             className="input-field"
             disabled={isLoading}
           />
           <button type="submit" className="submit-button" disabled={isLoading}>
-            发送
+            Send
           </button>
         </form>
         

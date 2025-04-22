@@ -23,16 +23,16 @@ const EligibilityForm = ({ onSubmitForm, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // 准备提交给AI分析的问题
+    // Prepare question for AI analysis
     const question = `
-      请根据以下个人信息评估我的移民资格:
-      目标国家: ${formData.targetCountry === 'australia' ? '澳洲' : '新西兰'}
-      年龄: ${formData.age}
-      学历: ${getEducationText(formData.education)}
-      工作经验: ${getWorkExperienceText(formData.workExperience)}
-      英语水平: ${getEnglishLevelText(formData.englishLevel)}
-      职业: ${formData.occupation}
-      家庭关系: ${formData.familyConnections === 'yes' ? '有' : '无'}${formData.targetCountry}亲属
+      Please assess my immigration eligibility based on the following information:
+      Target Country: ${formData.targetCountry === 'australia' ? 'Australia' : 'New Zealand'}
+      Age: ${formData.age}
+      Education: ${getEducationText(formData.education)}
+      Work Experience: ${getWorkExperienceText(formData.workExperience)}
+      English Level: ${getEnglishLevelText(formData.englishLevel)}
+      Occupation: ${formData.occupation}
+      Family Connections: ${formData.familyConnections === 'yes' ? 'Have' : 'No'} relatives in ${formData.targetCountry}
     `;
     
     onSubmitForm(question);
@@ -41,31 +41,31 @@ const EligibilityForm = ({ onSubmitForm, onClose }) => {
 
   const getEducationText = (value) => {
     const educationMap = {
-      'highschool': '高中',
-      'diploma': '大专/文凭',
-      'bachelor': '本科学士',
-      'master': '硕士',
-      'phd': '博士'
+      'highschool': 'High School',
+      'diploma': 'Diploma/Certificate',
+      'bachelor': 'Bachelor\'s Degree',
+      'master': 'Master\'s Degree',
+      'phd': 'PhD/Doctorate'
     };
     return educationMap[value] || value;
   };
 
   const getWorkExperienceText = (value) => {
     const experienceMap = {
-      '0-2': '0-2年',
-      '3-5': '3-5年',
-      '6-8': '6-8年',
-      '8+': '8年以上'
+      '0-2': '0-2 years',
+      '3-5': '3-5 years',
+      '6-8': '6-8 years',
+      '8+': '8+ years'
     };
     return experienceMap[value] || value;
   };
 
   const getEnglishLevelText = (value) => {
     const englishMap = {
-      'basic': '基础 (雅思 4-5分)',
-      'competent': '良好 (雅思 6-6.5分)',
-      'proficient': '熟练 (雅思 7-7.5分)',
-      'superior': '精通 (雅思 8分以上)'
+      'basic': 'Basic (IELTS 4-5)',
+      'competent': 'Competent (IELTS 6-6.5)',
+      'proficient': 'Proficient (IELTS 7-7.5)',
+      'superior': 'Superior (IELTS 8+)'
     };
     return englishMap[value] || value;
   };
@@ -74,20 +74,20 @@ const EligibilityForm = ({ onSubmitForm, onClose }) => {
     <div className="eligibility-form-overlay">
       <div className="eligibility-form-container">
         <button className="close-button" onClick={onClose}>×</button>
-        <h2>移民资格评估</h2>
-        <p>请提供您的基本信息，我们将为您进行初步资格评估</p>
+        <h2>Immigration Eligibility Assessment</h2>
+        <p>Please provide your basic information for an initial eligibility assessment</p>
         
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>目标国家</label>
+            <label>Target Country</label>
             <select name="targetCountry" value={formData.targetCountry} onChange={handleChange}>
-              <option value="australia">澳洲</option>
-              <option value="newzealand">新西兰</option>
+              <option value="australia">Australia</option>
+              <option value="newzealand">New Zealand</option>
             </select>
           </div>
           
           <div className="form-group">
-            <label>年龄</label>
+            <label>Age</label>
             <input 
               type="number" 
               name="age" 
@@ -101,50 +101,50 @@ const EligibilityForm = ({ onSubmitForm, onClose }) => {
           </div>
           
           <div className="form-group">
-            <label>最高学历</label>
+            <label>Highest Education</label>
             <select name="education" value={formData.education} onChange={handleChange}>
-              <option value="highschool">高中</option>
-              <option value="diploma">大专/文凭</option>
-              <option value="bachelor">本科学士</option>
-              <option value="master">硕士</option>
-              <option value="phd">博士</option>
+              <option value="highschool">High School</option>
+              <option value="diploma">Diploma/Certificate</option>
+              <option value="bachelor">Bachelor's Degree</option>
+              <option value="master">Master's Degree</option>
+              <option value="phd">PhD/Doctorate</option>
             </select>
           </div>
           
           <div className="form-group">
-            <label>相关工作经验</label>
+            <label>Relevant Work Experience</label>
             <select name="workExperience" value={formData.workExperience} onChange={handleChange}>
-              <option value="0-2">0-2年</option>
-              <option value="3-5">3-5年</option>
-              <option value="6-8">6-8年</option>
-              <option value="8+">8年以上</option>
+              <option value="0-2">0-2 years</option>
+              <option value="3-5">3-5 years</option>
+              <option value="6-8">6-8 years</option>
+              <option value="8+">8+ years</option>
             </select>
           </div>
           
           <div className="form-group">
-            <label>英语水平</label>
+            <label>English Level</label>
             <select name="englishLevel" value={formData.englishLevel} onChange={handleChange}>
-              <option value="basic">基础 (雅思 4-5分)</option>
-              <option value="competent">良好 (雅思 6-6.5分)</option>
-              <option value="proficient">熟练 (雅思 7-7.5分)</option>
-              <option value="superior">精通 (雅思 8分以上)</option>
+              <option value="basic">Basic (IELTS 4-5)</option>
+              <option value="competent">Competent (IELTS 6-6.5)</option>
+              <option value="proficient">Proficient (IELTS 7-7.5)</option>
+              <option value="superior">Superior (IELTS 8+)</option>
             </select>
           </div>
           
           <div className="form-group">
-            <label>职业</label>
+            <label>Occupation</label>
             <input 
               type="text" 
               name="occupation" 
               value={formData.occupation} 
               onChange={handleChange}
               required
-              placeholder="例如：软件工程师、会计师" 
+              placeholder="e.g., Software Engineer, Accountant" 
             />
           </div>
           
           <div className="form-group">
-            <label>是否有目标国家的亲属？</label>
+            <label>Do you have relatives in your target country?</label>
             <div className="radio-group">
               <label>
                 <input 
@@ -154,7 +154,7 @@ const EligibilityForm = ({ onSubmitForm, onClose }) => {
                   checked={formData.familyConnections === 'yes'} 
                   onChange={handleChange} 
                 />
-                是
+                Yes
               </label>
               <label>
                 <input 
@@ -164,12 +164,12 @@ const EligibilityForm = ({ onSubmitForm, onClose }) => {
                   checked={formData.familyConnections === 'no'} 
                   onChange={handleChange} 
                 />
-                否
+                No
               </label>
             </div>
           </div>
           
-          <button type="submit" className="submit-form-button">提交评估</button>
+          <button type="submit" className="submit-form-button">Submit Assessment</button>
         </form>
       </div>
     </div>
